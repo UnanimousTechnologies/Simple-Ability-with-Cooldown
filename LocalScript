@@ -1,0 +1,15 @@
+local player = game.Players.LocalPlayer
+local debounce = false
+local cooldown = 5 -- seconds
+script.Parent.MouseButton1Click:Connect(function()
+    if debounce then return end
+    debounce = true
+    -- Trigger ability effect (example explosion)
+    local explosion = Instance.new("Explosion")
+    explosion.Position = player.Character.HumanoidRootPart.Position
+    explosion.BlastRadius = 10
+    explosion.Parent = workspace
+    -- Start cooldown
+    wait(cooldown)
+    debounce = false
+end)
